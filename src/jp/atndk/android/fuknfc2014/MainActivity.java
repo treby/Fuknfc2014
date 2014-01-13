@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener {
-	
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,16 +29,16 @@ public class MainActivity extends Activity implements OnClickListener {
     }
 
     // for button
-	@Override
-	public void onClick(View v) {
-		switch(v.getId()) {
-		case R.id.button1:
-			Intent intent = new Intent(this, ReadActivity.class);
-			startActivity(intent);
-			break;
-		default:
-			Toast.makeText(this, "Nothing hit.", Toast.LENGTH_LONG).show();
-			break;
-		}
-	}
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()) {
+        case R.id.button1:
+            Intent intent = new Intent(this, ReadActivity.class);
+            startActivity(intent);
+            break;
+        default:
+            Toast.makeText(this, "Nothing hit.", Toast.LENGTH_LONG).show();
+            break;
+        }
+    }
 }
