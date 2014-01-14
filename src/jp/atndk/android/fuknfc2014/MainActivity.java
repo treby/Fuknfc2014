@@ -19,6 +19,8 @@ public class MainActivity extends Activity implements OnClickListener {
         // set listeners
         Button btn_read = (Button) findViewById(R.id.button1);
         btn_read.setOnClickListener(this);
+        Button btn_write = (Button) findViewById(R.id.button2);
+        btn_write.setOnClickListener(this);
     }
 
     @Override
@@ -31,9 +33,15 @@ public class MainActivity extends Activity implements OnClickListener {
     // for button
     @Override
     public void onClick(View v) {
+        Intent intent = null;
+
         switch(v.getId()) {
         case R.id.button1:
-            Intent intent = new Intent(this, ReadActivity.class);
+            intent = new Intent(this, ReadActivity.class);
+            startActivity(intent);
+            break;
+        case R.id.button2:
+            intent = new Intent(this, WriteActivity.class);
             startActivity(intent);
             break;
         default:

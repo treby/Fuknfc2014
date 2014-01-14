@@ -6,5 +6,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_read">ReadActivity</string>
     <string name="btn_read">Read</string>
+    <string name="title_activity_write">WriteActivity</string>
+    <string name="btn_write">Write</string>
+    <string name="et_plain_text">Plain text...</string>
 
 </resources>

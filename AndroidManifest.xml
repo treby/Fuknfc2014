@@ -7,10 +7,12 @@
     <uses-sdk
         android:minSdkVersion="15"
         android:targetSdkVersion="18" />
+
     <uses-feature
         android:name="android.hardware.nfc"
         android:required="true" />
-    <uses-permission android:name="android.permission.NFC"/>
+
+    <uses-permission android:name="android.permission.NFC" />
 
     <application
         android:allowBackup="true"
@@ -29,6 +31,10 @@
         <activity
             android:name="jp.atndk.android.fuknfc2014.ReadActivity"
             android:label="@string/title_activity_read" >
+        </activity>
+        <activity
+            android:name="jp.atndk.android.fuknfc2014.WriteActivity"
+            android:label="@string/title_activity_write" >
         </activity>
     </application>
 
