@@ -18,6 +18,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class WriteActivity extends Activity implements OnClickListener {
@@ -78,12 +79,15 @@ public class WriteActivity extends Activity implements OnClickListener {
     }
 
     public void writeNdef(Ndef ndef) {
-        // EditText etWrite = (EditText) findViewById(R.id.editText1);
-        // String writeText = etWrite.getText().toString();
+        EditText etWrite = (EditText) findViewById(R.id.editText1);
+        byte[] strBytes = etWrite.getText().toString().getBytes();
+        byte[] payload = new byte[strBytes.length + 1];
+        payload[0] = 0;
+        System.arraycopy(strBytes, 0, payload, 1, strBytes.length);
         
-        NdefRecord record = NdefRecord.createUri("http://www.atelier-nodoka.net/");
         NdefMessage msg = new NdefMessage(new NdefRecord[] {
-                record
+                NdefRecord.createUri("http://www.atelier-nodoka.net/"),
+                new NdefRecord(NdefRecord.TNF_WELL_KNOWN, NdefRecord.RTD_TEXT, new byte[0], payload)
         });
 
         try {
