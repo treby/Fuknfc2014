@@ -51,5 +51,4 @@ public class ReadActivity extends Activity {
         getMenuInflater().inflate(R.menu.read, menu);
         return true;
     }
-
 }
