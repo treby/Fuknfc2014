@@ -9,5 +9,6 @@
     <string name="title_activity_write">WriteActivity</string>
     <string name="btn_write">Write</string>
     <string name="et_plain_text">Plain text</string>
+    <string name="img_pronama">プロ生ちゃん</string>
 
 </resources>
