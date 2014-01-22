@@ -21,13 +21,10 @@ public class MainActivity extends Activity implements OnClickListener {
         mVoiceManager = new PronamaVoiceManager(this);
         
         // set listeners
-        ImageView img_pronama = (ImageView) findViewById(R.id.imageView1);
+        ImageView img_pronama = (ImageView) findViewById(R.id.imageViewPronama);
         img_pronama.setOnClickListener(this);
-        Button btn_read = (Button) findViewById(R.id.button1);
-        btn_read.setOnClickListener(this);
-        Button btn_write = (Button) findViewById(R.id.button2);
+        Button btn_write = (Button) findViewById(R.id.buttonWrite);
         btn_write.setOnClickListener(this);
-        
     }
 
     @Override
@@ -51,15 +48,13 @@ public class MainActivity extends Activity implements OnClickListener {
         Intent intent = null;
 
         switch(v.getId()) {
-        case R.id.button1:
-            intent = new Intent(this, ReadActivity.class);
-            startActivity(intent);
+        case R.id.buttonStart:
             break;
-        case R.id.button2:
+        case R.id.buttonWrite:
             intent = new Intent(this, WriteActivity.class);
             startActivity(intent);
             break;
-        case R.id.imageView1:
+        case R.id.imageViewPronama:
             mVoiceManager.play(PronamaVoiceManager.KEI_VOICE_029, 100);
             break;
         default:

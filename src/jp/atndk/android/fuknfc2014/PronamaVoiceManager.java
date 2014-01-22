@@ -6,7 +6,7 @@ import android.media.SoundPool;
 
 public class PronamaVoiceManager {
     public static final int KEI_VOICE_029 = 0;
-    
+
     private static final int[] VoiceList = {
         R.raw.kei_voice_029
     };
