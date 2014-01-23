@@ -1,4 +1,5 @@
 # built application files
+*.keystore
 *.apk
 *.ap_
 
