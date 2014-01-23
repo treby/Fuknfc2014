@@ -107,7 +107,9 @@ public class WriteActivity extends Activity implements OnClickListener {
     }
     
     private void disableSearchTag() {
-        mNfcAdapter.disableForegroundDispatch(this);
+        if (mNfcAdapter != null) {
+            mNfcAdapter.disableForegroundDispatch(this);
+        }
     }
     
 

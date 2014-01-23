@@ -1,5 +1,7 @@
 package jp.atndk.android.fuknfc2014;
 
+import java.util.Random;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,17 +14,28 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener {
     private PronamaVoiceManager mVoiceManager;
-    
+    private Random mRandom;
+    private int[] mPronamaRandomVoices;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         mVoiceManager = new PronamaVoiceManager(this);
-        
+        mRandom = new Random();
+        mPronamaRandomVoices = new int[] {
+                PronamaVoiceManager.KEI_DONDON_CODE,
+                PronamaVoiceManager.KEI_EIXTSU,
+                PronamaVoiceManager.KEI_WATASHI,
+                PronamaVoiceManager.KEI_YOROSHIKU,
+        };
+
         // set listeners
         ImageView img_pronama = (ImageView) findViewById(R.id.imageViewPronama);
         img_pronama.setOnClickListener(this);
+        Button btn_control = (Button) findViewById(R.id.buttonControl);
+        btn_control.setOnClickListener(this);
         Button btn_write = (Button) findViewById(R.id.buttonWrite);
         btn_write.setOnClickListener(this);
     }
@@ -48,14 +61,16 @@ public class MainActivity extends Activity implements OnClickListener {
         Intent intent = null;
 
         switch(v.getId()) {
-        case R.id.buttonStart:
+        case R.id.buttonControl:
+            mVoiceManager.play(PronamaVoiceManager.KEI_START, 100);
             break;
         case R.id.buttonWrite:
             intent = new Intent(this, WriteActivity.class);
             startActivity(intent);
             break;
         case R.id.imageViewPronama:
-            mVoiceManager.play(PronamaVoiceManager.KEI_VOICE_029, 100);
+            int choice = mRandom.nextInt(mPronamaRandomVoices.length);
+            mVoiceManager.play(mPronamaRandomVoices[choice], 100);
             break;
         default:
             Toast.makeText(this, "Nothing hit.", Toast.LENGTH_LONG).show();

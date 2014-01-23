@@ -32,7 +32,7 @@
             android:text="@string/btn_write" />
 
         <Button
-            android:id="@+id/buttonStart"
+            android:id="@+id/buttonControl"
             style="@style/ButtonBarButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
