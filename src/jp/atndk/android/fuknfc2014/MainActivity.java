@@ -7,6 +7,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,10 +21,12 @@ public class MainActivity extends Activity implements View.OnClickListener, Dial
     private Random mRandom;
     private int[] mPronamaRandomVoices;
 
+    private CountDownTimer mCountDownTimer;
+    private int mRestSeconds;
+
     private String[] mDialogChoice;
     private int[] mDialogSeconds;
     private int mDialogPointer;
-    private int mRestSeconds;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Dial
                 PronamaVoiceManager.KEI_WATASHI,
                 PronamaVoiceManager.KEI_YOROSHIKU,
         };
+
         mDialogChoice = new String[] { "1:30", "3:00", "5:00", "8:00", "10:00", "15:00" };
         mDialogSeconds = new int[] { 90, 180, 300, 480, 600, 900 };
         mDialogPointer = 1;
@@ -60,7 +64,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Dial
             mVoiceManager = null;
         }
     }
-    
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -76,7 +80,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Dial
 
         switch(v.getId()) {
         case R.id.buttonControl:
-            mVoiceManager.play(PronamaVoiceManager.KEI_START, 100);
+            affectTimer();
             break;
         case R.id.buttonWrite:
             intent = new Intent(this, WriteActivity.class);
@@ -131,6 +135,51 @@ public class MainActivity extends Activity implements View.OnClickListener, Dial
         dialog.show();
     }
 
+    private void affectTimer() {
+        if (mCountDownTimer != null) {
+            stopTimer(mCountDownTimer);
+            mCountDownTimer = null;
+            return ;
+        }
+
+        startTimer();
+    }
+    
+    private void startTimer() {
+        mRestSeconds += 1;
+        mCountDownTimer = new CountDownTimer( mRestSeconds * 1000, 1000 ){
+            @Override
+            public void onFinish() {
+                mRestSeconds = 0;
+                updateRestView(mRestSeconds);
+
+                mVoiceManager.play(PronamaVoiceManager.KEI_FINISH_B, 100);
+                stopTimer(this);
+                mCountDownTimer = null;
+            }
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+                mRestSeconds--;
+                playPronamaCount(mRestSeconds);
+                updateRestView(mRestSeconds);
+            }
+        };
+
+        ((Button) findViewById(R.id.buttonControl)).setText(R.string.btn_stop);
+        mVoiceManager.play(PronamaVoiceManager.KEI_START, 100);
+        mCountDownTimer.start();
+    }
+    
+    private void stopTimer(CountDownTimer cdt) {
+        if (cdt == null) {
+            return;
+        }
+
+        cdt.cancel();
+        ((Button) findViewById(R.id.buttonControl)).setText(R.string.btn_start);
+    }
+    
     private void updateRestView(int rest_seconds) {
         TextView tv_rest = (TextView) findViewById(R.id.textView1);
         int minutes = rest_seconds / 60;
@@ -138,5 +187,46 @@ public class MainActivity extends Activity implements View.OnClickListener, Dial
 
         tv_rest.setText(String.format("%02d:%02d", minutes, seconds));
     }
-    
+
+    private void playPronamaCount(int rest_seconds) {
+        if (rest_seconds > 10) {
+            return;
+        }
+
+        switch(rest_seconds) {
+        case 10:
+            mVoiceManager.play(PronamaVoiceManager.KEI_JYU, 100);
+            break;
+        case 9:
+            mVoiceManager.play(PronamaVoiceManager.KEI_KYU, 100);
+            break;
+        case 8:
+            mVoiceManager.play(PronamaVoiceManager.KEI_HACHI, 100);
+            break;
+        case 7:
+            mVoiceManager.play(PronamaVoiceManager.KEI_NANA, 100);
+            break;
+        case 6:
+            mVoiceManager.play(PronamaVoiceManager.KEI_ROKU, 100);
+            break;
+        case 5:
+            mVoiceManager.play(PronamaVoiceManager.KEI_GO, 100);
+            break;
+        case 4:
+            mVoiceManager.play(PronamaVoiceManager.KEI_YON, 100);
+            break;
+        case 3:
+            mVoiceManager.play(PronamaVoiceManager.KEI_SAN, 100);
+            break;
+        case 2:
+            mVoiceManager.play(PronamaVoiceManager.KEI_NI, 100);
+            break;
+        case 1:
+            mVoiceManager.play(PronamaVoiceManager.KEI_ICHI, 100);
+            break;
+        case 0:
+            mVoiceManager.play(PronamaVoiceManager.KEI_ZERO, 100);
+            break;
+        }
+    }
 }
