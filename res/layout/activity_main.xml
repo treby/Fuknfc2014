@@ -22,7 +22,7 @@
         android:layout_alignParentLeft="true"
         android:paddingLeft="10dp"
         android:paddingRight="10dp" >
-
+<!-- 
         <Button
             android:id="@+id/buttonWrite"
             style="@style/ButtonBarButton"
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="3"
             android:text="@string/btn_write" />
-
+ -->
         <Button
             android:id="@+id/buttonControl"
             style="@style/ButtonBarButton"

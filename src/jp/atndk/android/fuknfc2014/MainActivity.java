@@ -5,7 +5,6 @@ import java.util.Random;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.Menu;
@@ -53,8 +52,8 @@ public class MainActivity extends Activity implements View.OnClickListener, Dial
         img_pronama.setOnClickListener(this);
         Button btn_control = (Button) findViewById(R.id.buttonControl);
         btn_control.setOnClickListener(this);
-        Button btn_write = (Button) findViewById(R.id.buttonWrite);
-        btn_write.setOnClickListener(this);
+//        Button btn_write = (Button) findViewById(R.id.buttonWrite);
+//        btn_write.setOnClickListener(this);
     }
 
     @Override
@@ -76,16 +75,16 @@ public class MainActivity extends Activity implements View.OnClickListener, Dial
     // for button
     @Override
     public void onClick(View v) {
-        Intent intent = null;
+//        Intent intent = null;
 
         switch(v.getId()) {
         case R.id.buttonControl:
             affectTimer();
             break;
-        case R.id.buttonWrite:
-            intent = new Intent(this, WriteActivity.class);
-            startActivity(intent);
-            break;
+//        case R.id.buttonWrite:
+//            intent = new Intent(this, WriteActivity.class);
+//            startActivity(intent);
+//            break;
         case R.id.imageViewPronama:
             int choice = mRandom.nextInt(mPronamaRandomVoices.length);
             mVoiceManager.play(mPronamaRandomVoices[choice], 100);
@@ -146,6 +145,12 @@ public class MainActivity extends Activity implements View.OnClickListener, Dial
     }
     
     private void startTimer() {
+        if (mRestSeconds < 1) {
+            mRestSeconds = mDialogSeconds[mDialogPointer];
+            updateRestView(mRestSeconds);
+            return;
+        }
+
         mRestSeconds += 1;
         mCountDownTimer = new CountDownTimer( mRestSeconds * 1000, 1000 ){
             @Override
