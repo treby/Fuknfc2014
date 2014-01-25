@@ -26,6 +26,8 @@ public class PronamaVoiceManager {
     public static final int KEI_KYU = 18;
     public static final int KEI_JYU = 19;
     public static final int KEI_FINISH_B = 20;
+    public static final int KEI_NN = 21;
+    public static final int KEI_OTTO = 22;
 
     private static final int[] VoiceList = {
         R.raw.kei_voice_008_phrase1,    // おはよう
@@ -49,6 +51,8 @@ public class PronamaVoiceManager {
         R.raw.kei_voice_079,            // きゅう
         R.raw.kei_voice_080,            // じゅう
         R.raw.kei_voice_081,            // はい、しゅーりょー
+        R.raw.kei_voice_091_phrase1,    // ん？
+        R.raw.kei_voice_097_phrase1,    // おっと
     };
     
     private SoundPool mSoundPool;

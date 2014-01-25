@@ -182,6 +182,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Dial
         }
 
         cdt.cancel();
+        mVoiceManager.play(PronamaVoiceManager.KEI_OTTO, 100);
         ((Button) findViewById(R.id.buttonControl)).setText(R.string.btn_start);
     }
     
