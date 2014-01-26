@@ -30,29 +30,29 @@ public class PronamaVoiceManager {
     public static final int KEI_OTTO = 22;
 
     private static final int[] VoiceList = {
-        R.raw.kei_voice_008_phrase1,    // Ç®ÇÕÇÊÇ§
-        R.raw.kei_voice_008_phrase2,    // ç°ì˙Ç‡Ç«ÇÒÇ«ÇÒÉRÅ[ÉhèëÇ¢ÇƒÇ¢Ç±Ç§ÅI
-        R.raw.kei_voice_015_phrase1,    // éÑÅAïÈà‰åd
-        R.raw.kei_voice_015_phrase2,    // ÇÊÇÎÇµÇ≠ÇÀ
-        R.raw.kei_voice_029,            // Ç¶Ç¢Ç¡
-        R.raw.kei_voice_056,            // ÉXÉ^Å[ÉgÅI
-        R.raw.kei_voice_060,            // ÇµÇ„Ç§Å`ÇËÇÂÇ§Å`
-        R.raw.kei_voice_061_a,          // Ç®ÇÌÇËÅAÇæÇÊÅI A
-        R.raw.kei_voice_061_b,          // Ç®ÇÌÇËÅAÇæÇÊÅI B
-        R.raw.kei_voice_068,            // Ç∫ÇÎ
-        R.raw.kei_voice_069,            // Ç¢Çø
-        R.raw.kei_voice_070,            // Ç…
-        R.raw.kei_voice_071,            // Ç≥ÇÒ
-        R.raw.kei_voice_073,            // ÇÊÇÒ
-        R.raw.kei_voice_074,            // Ç≤
-        R.raw.kei_voice_075,            // ÇÎÇ≠
-        R.raw.kei_voice_076,            // Ç»Ç»
-        R.raw.kei_voice_077,            // ÇÕÇø
-        R.raw.kei_voice_079,            // Ç´Ç„Ç§
-        R.raw.kei_voice_080,            // Ç∂Ç„Ç§
-        R.raw.kei_voice_081,            // ÇÕÇ¢ÅAÇµÇ„Å[ÇËÇÂÅ[
-        R.raw.kei_voice_091_phrase1,    // ÇÒÅH
-        R.raw.kei_voice_097_phrase1,    // Ç®Ç¡Ç∆
+        R.raw.kei_voice_008_phrase1,    // „Åä„ÅØ„Çà„ÅÜ
+        R.raw.kei_voice_008_phrase2,    // ‰ªäÊó•„ÇÇ„Å©„Çì„Å©„Çì„Ç≥„Éº„ÉâÊõ∏„ÅÑ„Å¶„ÅÑ„Åì„ÅÜÔºÅ
+        R.raw.kei_voice_015_phrase1,    // ÁßÅ„ÄÅÊöÆ‰∫ïÊÖß
+        R.raw.kei_voice_015_phrase2,    // „Çà„Çç„Åó„Åè„Å≠
+        R.raw.kei_voice_029,            // „Åà„ÅÑ„Å£
+        R.raw.kei_voice_056,            // „Çπ„Çø„Éº„ÉàÔºÅ
+        R.raw.kei_voice_060,            // „Åó„ÇÖ„ÅÜ„Äú„Çä„Çá„ÅÜ„Äú
+        R.raw.kei_voice_061_a,          // „Åä„Çè„Çä„ÄÅ„Å†„ÇàÔºÅ A
+        R.raw.kei_voice_061_b,          // „Åä„Çè„Çä„ÄÅ„Å†„ÇàÔºÅ B
+        R.raw.kei_voice_068,            // „Åú„Çç
+        R.raw.kei_voice_069,            // „ÅÑ„Å°
+        R.raw.kei_voice_070,            // „Å´
+        R.raw.kei_voice_071,            // „Åï„Çì
+        R.raw.kei_voice_073,            // „Çà„Çì
+        R.raw.kei_voice_074,            // „Åî
+        R.raw.kei_voice_075,            // „Çç„Åè
+        R.raw.kei_voice_076,            // „Å™„Å™
+        R.raw.kei_voice_077,            // „ÅØ„Å°
+        R.raw.kei_voice_079,            // „Åç„ÇÖ„ÅÜ
+        R.raw.kei_voice_080,            // „Åò„ÇÖ„ÅÜ
+        R.raw.kei_voice_081,            // „ÅØ„ÅÑ„ÄÅ„Åó„ÇÖ„Éº„Çä„Çá„Éº
+        R.raw.kei_voice_091_phrase1,    // „ÇìÔºü
+        R.raw.kei_voice_097_phrase1,    // „Åä„Å£„Å®
     };
     
     private SoundPool mSoundPool;
