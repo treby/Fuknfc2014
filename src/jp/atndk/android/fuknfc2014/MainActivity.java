@@ -58,6 +58,8 @@ public class MainActivity extends Activity implements View.OnClickListener, Dial
 
     @Override
     protected void onDestroy() {
+        super.onDestroy();
+        
         if (mVoiceManager != null) {
             mVoiceManager.release();
             mVoiceManager = null;
@@ -124,7 +126,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Dial
 
     private void showTimerSettingDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("LTŠÔ‚ğİ’è");
+        builder.setTitle("LTæ™‚é–“ã‚’è¨­å®š");
 
         builder.setSingleChoiceItems(mDialogChoice, mDialogPointer, this);
         builder.setPositiveButton("OK", this );
